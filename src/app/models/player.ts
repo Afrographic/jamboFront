@@ -1,8 +1,10 @@
 export class Player {
     player_id: number = 0;
+    player_pseudo: string = "";
     player_dateCreated: string = "";
     player_email: string = "";
     player_password: string = "";
+    player_confirm_password: string = "";
     player_balance: number = 0;
     player_account_active: boolean = false;
     player_verification_code: string = "";
@@ -19,10 +21,10 @@ export class Player {
 
     }
 
-
     static fromJSON(playerJSON: any) {
         let player: Player = new Player();
         player.player_id = playerJSON.player_id;
+        player.player_pseudo = playerJSON.player_pseudo;
         player.player_dateCreated = playerJSON.player_dateCreated;
         player.player_email = playerJSON.player_email;
         player.player_password = playerJSON.player_password;
@@ -53,6 +55,7 @@ export class Player {
     static toJSON(player: Player) {
         return {
             player_id: player.player_id,
+            player_pseudo: player.player_pseudo,
             player_dateCreated: player.player_dateCreated,
             player_email: player.player_email,
             player_password: player.player_password,
@@ -77,5 +80,6 @@ export class Player {
         }
         return playerJSONArray;
     }
+
 
 }

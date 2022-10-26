@@ -1,16 +1,16 @@
 export function numFormatter(num: any) {
     if (num > 999 && num < 1000000) {
-        return (num / 1000).toFixed(1) + 'K'; 
+        return (num / 1000).toFixed(1) + 'K';
     } else if (num > 1000000) {
-        return (num / 1000000).toFixed(1) + 'M'; 
+        return (num / 1000000).toFixed(1) + 'M';
     } else if (num < 900) {
-        return num; 
+        return num;
     }
 }
 
-export function Ucase(str:string){
+export function Ucase(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-} 
+}
 
 
 export function isInViewport(el: any) {
@@ -30,5 +30,13 @@ export function sleep(ms: any) {
 export function uid() {
     let a = new Uint32Array(3);
     window.crypto.getRandomValues(a);
-    return (performance.now().toString(36) + Array.from(a).map(A => A.toString(36)).join("")).replace(/\./g, "").substring(0,9);
+    return (performance.now().toString(36) + Array.from(a).map(A => A.toString(36)).join("")).replace(/\./g, "").substring(0, 9);
+}
+
+export function getFormDataFromObject(object: any) {
+    let form_data = new FormData();
+    for (const item in object) {
+        form_data.append(item, object[item]);
+    }
+    return form_data;
 }
