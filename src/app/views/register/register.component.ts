@@ -1,7 +1,10 @@
+import { Router } from '@angular/router';
+import { APICallSecure } from './../../services/api_call_secure';
 import { APICallOpen } from './../../services/api_call_open';
 import { Player } from './../../models/player';
 import { Component, OnInit } from '@angular/core';
 import { Validator } from 'src/app/utils/validator';
+import { sleep } from 'src/app/utils/tools';
 
 @Component({
   selector: 'app-register',
@@ -16,11 +19,12 @@ export class RegisterComponent implements OnInit {
   confirmPasswordStep = false;
   emailStep = false;
   createAccountActive = false;
+  success = false;
 
   showError = false;
   errorMessage = "";
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -113,6 +117,7 @@ export class RegisterComponent implements OnInit {
     let res = await APICallOpen.postData("http://localhost:3000/api/player", this.player);
     this.registering = false;
     if (res.status == 200) {
+      this.success = true;
       this.login();
     } else {
       this.showError = true;
@@ -120,7 +125,20 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  login() { }
+  async login() {
+    await sleep(2000);
+    let res = await APICallOpen.postData("http://localhost:3000/api/login", this.player);
+    if (res.status == 200) {
+      let token = res.token;
+      APICallSecure.token = token;
+      localStorage.setItem("jambo_token", token);
+      // redirect to home
+      this.router.navigate([""]);
+    } else {
+      this.showError = true;
+      this.errorMessage = "Erreur serveur , veuillez reessayer plus tard";
+    }
+  }
 
   back() {
     history.back();

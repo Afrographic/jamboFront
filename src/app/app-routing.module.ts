@@ -1,3 +1,4 @@
+import { CreatePartieComponent } from './views/partie/create-partie/create-partie.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'create_partie',
+    component: CreatePartieComponent,
   },
   {
     path: '**', pathMatch: 'full',

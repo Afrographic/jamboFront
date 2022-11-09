@@ -27,6 +27,7 @@
         <p><button (click)="register()">Creer mon compte</button></p>
     </div>
     <p *ngIf="registering">Loading...</p>
+    <p *ngIf="success">Compte creer avec success</p>
     <p *ngIf="showError">{{errorMessage}}</p>
     <p *ngIf="!createAccountActive"><button *ngIf="!pseudoStep" (click)="prev()">Precedent</button> <button (click)="next()">Suivant</button></p>
    

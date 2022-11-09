@@ -70,6 +70,138 @@ body {
   border-radius: 8px;
 }
 
-.w100{
+.w100 {
   width: 100%;
+}
+.p8 {
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.aic {
+  align-items: center;
+}
+.jcc {
+  justify-content: center;
+}
+.jcsb {
+  justify-content: space-between;
+}
+
+.overflow_auto {
+  overflow: auto;
+}
+
+.white {
+  color: rgba(255, 255, 255, 0.713);
+}
+
+.b_white {
+  background-color: #fff;
+}
+
+.grey {
+  color: #535353;
+}
+
+.f11 {
+  font-size: 11px;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.ovfa {
+  overflow: auto;
+}
+
+.tac {
+  text-align: center;
+}
+
+.aic {
+  align-items: center;
+}
+
+.p24 {
+  padding: 24px;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.iconButton {
+  width: 15px;
+}
+.b_blue {
+  background-color: #0029bc;
+}
+
+.w100p {
+  width: 100%;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.ghost {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.g8 {
+  gap: 8px;
+}
+.g16 {
+  gap: 16px;
+}
+
+.g4 {
+  gap: 4px;
+}
+
+.actionImage {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.grid {
+  display: grid;
+}
+.c3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.c4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.c2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ovfa {
+  overflow: auto;
+}
+
+.actionImage:hover {
+  transform: translateY(-5px);
 }

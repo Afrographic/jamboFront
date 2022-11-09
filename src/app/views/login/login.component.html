@@ -1,7 +1,12 @@
-<h1>login</h1>
-<p>Email</p>
-<p><input type="email" placeholder="Enter your email" class="w100"></p>
-<p>Password</p>
-<p><input type="password" placeholder="Enter your password" class="w100"></p>
-<p><button>Se connecter</button></p>
-<p><button (click)="back()">Retour</button></p>
+<div class="p8">
+    <h1>login</h1>
+    <p>Email</p>
+    <p><input type="email" placeholder="Enter your email" class="w100" [(ngModel)]="player.player_email"></p>
+    <p>Password</p>
+    <p><input type="password" placeholder="Enter your password" class="w100" [(ngModel)]="player.player_password"></p>
+    <p *ngIf="loading">Loading...</p>
+    <p *ngIf="showError">{{errorMessage}}</p>
+    <p *ngIf="showSucess">{{successMessage}}</p>
+    <p><button (click)="login()">Se connecter</button></p>
+    <p><button (click)="back()">Retour</button></p>
+</div>

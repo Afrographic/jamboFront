@@ -1,4 +1,14 @@
-<h1>Bienvenue sur FastBet</h1>
-<p>Tentez de gagner des millions en quelques minutes</p>
-<button (click)="login()">Vous connecter</button>
-<button (click)="register()">Creer un compte</button>
+<div style="padding:8px;">
+    <h1>Bienvenue sur FastBet</h1>
+    <p>Tentez de gagner des millions en quelques minutes</p>
+    <div *ngIf="!connected">
+        <button (click)="login()">Vous connecter</button>
+        <button (click)="register()">Creer un compte</button>
+    </div>
+
+    <div *ngIf="connected">
+        <button (click)="create_partie()">Creer une partie</button>
+        <button (click)="logOut()">Deconnexion</button>
+    </div>
+
+</div>
