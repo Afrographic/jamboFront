@@ -1,4 +1,5 @@
 import { getFormDataFromObject } from "../utils/tools";
+import { HOST } from "./consts";
 
 export class APICallSecure {
     static token = "";
@@ -17,7 +18,7 @@ export class APICallSecure {
         h.append("Accept", 'application/json');
         h.append("Authorization", 'Bearer ' + this.token);
 
-        let req = new Request(uri, {
+        let req = new Request(`${HOST}${uri}`, {
             method: 'GET',
             headers: h,
             mode: 'cors'
@@ -34,7 +35,7 @@ export class APICallSecure {
         h.append("Accept", 'application/json');
         h.append("Authorization", 'Bearer ' + this.token);
 
-        let req = new Request(uri, {
+        let req = new Request(`${HOST}${uri}`, {
             method: 'DELETE',
             headers: h,
             mode: 'cors'
@@ -51,7 +52,7 @@ export class APICallSecure {
         h.append("Accept", 'application/json');
         h.append("Authorization", 'Bearer ' + this.token);
 
-        let req = new Request(uri, {
+        let req = new Request(`${HOST}${uri}`, {
             method: 'POST',
             headers: h,
             mode: 'cors',
@@ -69,7 +70,7 @@ export class APICallSecure {
         h.append("Accept", 'application/json');
         h.append("Authorization", 'Bearer ' + this.token);
 
-        let req = new Request(uri, {
+        let req = new Request(`${HOST}${uri}`, {
             method: 'PATCH',
             headers: h,
             mode: 'cors',

@@ -22,7 +22,7 @@ export class Validator {
     static correctString(str: string) {
         //console.log(str);
         if (str == 'undefined') return false;
-        const regex = new RegExp("^[a-z 0-9]+$", "i")
+        const regex = new RegExp("^[a-zA-Z 0-9]+$", "i")
         return regex.test(str);
     }
     static filledArray(arr: any) {

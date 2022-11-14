@@ -1,7 +1,20 @@
 <div class="p8">
     <h2>Creer une partie</h2>
-    <p>
-        <input type="text" placeholder="Veuillez entrez la mise initiale" >
-    </p>
-    <button (click)="back()">Retour</button>
+    <div class="pv32">
+        <p>Mise Initiale</p>
+        <p>
+            <input type="number" placeholder="Veuillez entrez la mise initiale" class="w100" [(ngModel)]="game.game_bet">
+        </p>
+        <p>Monnaie</p>
+        <div class="currencies row" style="gap:8px;">
+            <div *ngFor="let currency of currencies" class="currency tac" [class.active]="currency.active"
+                (click)="select_currency(currencies.indexOf(currency))">{{currency.name}}</div>
+        </div>
+    </div>
+   
+    <div>
+        <button (click)="create_proxy()">Creer</button>
+        <button (click)="back()">Retour</button>
+    </div>
+   
 </div>

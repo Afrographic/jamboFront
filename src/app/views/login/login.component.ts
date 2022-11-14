@@ -1,3 +1,4 @@
+import { Validator } from './../../utils/validator';
 import { sleep } from 'src/app/utils/tools';
 import { Player } from './../../models/player';
 import { Component, OnInit } from '@angular/core';
@@ -11,20 +12,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  player: Player = new Player();
+
   loading = false;
   showError = false;
   showSucess = false;
   errorMessage = "";
   successMessage = "";
-  player: Player = new Player();
+
+  error_email: boolean = false;
+  error_password: boolean = false;
+  
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  clear_errors() {
+    this.showError = false;
+    this.error_email = false;
+    this.error_password = false;
+  }
+
+  login_proxy() {
+    this.clear_errors();
+    let fields_ok = true;
+    
+    if (!Validator.correctEmail(this.player.player_email)) {
+      this.error_email = true;
+      fields_ok = false;
+    }
+
+    if (this.player.player_password.length == 0) {
+      this.error_password = true;
+      fields_ok = false;
+    }
+
+    if (fields_ok) {
+      this.clear_errors();
+      this.login();
+    }
+  }
+
   async login() {
+   
     this.loading = true;
-    let res = await APICallOpen.postData("http://localhost:3000/api/login", this.player);
+    let res = await APICallOpen.postData("/api/login", this.player);
     this.loading = false;
     if (res.status == 200) {
       let token = res.token;

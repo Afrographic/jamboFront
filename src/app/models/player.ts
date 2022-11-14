@@ -1,12 +1,7 @@
 import { APICallSecure } from './../services/api_call_secure';
 export class Player {
 
-    static init() {
-        let token = localStorage.getItem("jambo_token");
-        if (token != undefined) {
-            APICallSecure.token = token;
-        }
-    }
+  
 
     player_id: number = 0;
     player_pseudo: string = "";

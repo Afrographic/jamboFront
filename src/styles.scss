@@ -73,9 +73,6 @@ body {
 .w100 {
   width: 100%;
 }
-.p8 {
-  padding: 8px;
-}
 
 .row {
   display: flex;
@@ -204,4 +201,84 @@ body {
 
 .actionImage:hover {
   transform: translateY(-5px);
+}
+
+// All padding
+.p4 {
+  padding: 4px;
+}
+.p8 {
+  padding: 8px;
+}
+.p16 {
+  padding: 16px;
+}
+.p32 {
+  padding: 32px;
+}
+// Vercial padding
+.pv4 {
+  padding: 4px 0px;
+}
+.pv8 {
+  padding: 8px 0px;
+}
+.pv16 {
+  padding: 16px 0px;
+}
+.pv32 {
+  padding: 32px 0px;
+}
+// Horizontal padding
+.ph4 {
+  padding: 0px 4px;
+}
+.ph8 {
+  padding: 0px 8px;
+}
+.ph16 {
+  padding: 0px 16px;
+}
+.ph32 {
+  padding: 0px 32px;
+}
+
+// All margin
+.m4 {
+  margin: 4px;
+}
+.m8 {
+  margin: 8px;
+}
+.m16 {
+  margin: 16px;
+}
+.m32 {
+  margin: 32px;
+}
+// Vercial padding
+.mv4 {
+  margin: 4px 0px;
+}
+.mv8 {
+  margin: 8px 0px;
+}
+.mv16 {
+  margin: 16px 0px;
+}
+.mv32 {
+  margin: 32px 0px;
+}
+// Horizontal padding
+.mh4 {
+  margin: 0px 4px;
+}
+.mh8 {
+  margin: 0px 8px;
+}
+.mh16 {
+  margin: 0px 16px;
+}
+.mh32 {
+  margin: 0px 32px;
 }

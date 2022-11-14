@@ -1,3 +1,4 @@
+import { PlayerService } from './../../services/player_service';
 import { Player } from './../../models/player';
 import { APICallSecure } from './../../services/api_call_secure';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    Player.init();
+    PlayerService.init();
     this.initConnectState();
   }
 
@@ -30,8 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   logOut() {
-    APICallSecure.token = "";
-    localStorage.removeItem("jambo_token");
+    PlayerService.log_out();
     this.connected = false;
   }
 

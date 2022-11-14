@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
   }
   async register() {
     this.registering = true;
-    let res = await APICallOpen.postData("http://localhost:3000/api/player", this.player);
+    let res = await APICallOpen.postData("/api/player", this.player);
     this.registering = false;
     if (res.status == 200) {
       this.success = true;
@@ -127,7 +127,7 @@ export class RegisterComponent implements OnInit {
 
   async login() {
     await sleep(2000);
-    let res = await APICallOpen.postData("http://localhost:3000/api/login", this.player);
+    let res = await APICallOpen.postData("/api/login", this.player);
     if (res.status == 200) {
       let token = res.token;
       APICallSecure.token = token;

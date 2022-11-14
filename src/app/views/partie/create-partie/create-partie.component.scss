@@ -1,0 +1,22 @@
+
+.currency{
+    border:1px solid #aaa;
+    border-radius: 8px;
+    padding:16px;
+    cursor: pointer;
+    flex:1;
+    position: relative;
+    top:0px;
+    font-size: 12px;
+}
+
+.currency:hover:not(.active){
+    top:-5px;
+    opacity: 0.8;
+}
+
+.currency.active{
+    background-color: rgb(32, 32, 32);
+    color:rgba(255, 255, 255, 0.784);
+     border:1px solid rgba(170, 170, 170, 0);
+}
