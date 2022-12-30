@@ -1,0 +1,25 @@
+<div class="column h100 jcfe">
+    <h3>Veuillez renseigner votre address email</h3>
+
+    <p>Cette information servira a recuperer votre compte au cas ou vous oublier votre mot de passe</p>
+
+    <input type="text" class="w100" [(ngModel)]="user.user_email" placeholder="Entrez votre addresse email" autofocus id="email_field">
+
+    <p class="error" *ngIf="show_invalid_email_error">Cette addresse email est invalide </p>
+
+    <p class="error" *ngIf="show_email_already_taken_error">Cette addresse email est deja utilise, si vous etes le
+        proprietaire vous pouvez vous connecter directement <button (click)="go_to_login()">Me connecter</button>
+    </p>
+
+    <p *ngIf="checking_if_email_taken">Validation de l'adresse email...</p>
+
+    <p *ngIf="creating_account">Creation du compte en cours...</p>
+    <p *ngIf="server_error" class="error">Erreur serveur, veuillez reessayer plus tard.</p>
+    <p *ngIf="creation_success">Compte creer avec succes, vous serez rediriger vers votre espace dans quelque instants
+    </p>
+
+    <div class="mt16 row g8">
+        <button class="f1" (click)="go_to_add_password()">Modifer le mot de passe</button>
+        <button class="f1" (click)="go_to_create_account_proxy()">Creer le compte</button>
+    </div>
+</div>

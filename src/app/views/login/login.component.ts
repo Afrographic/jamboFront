@@ -1,6 +1,7 @@
+import { UserService } from 'src/app/services/user_service';
 import { Validator } from './../../utils/validator';
 import { sleep } from 'src/app/utils/tools';
-import { Player } from './../../models/player';
+import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { APICallOpen } from 'src/app/services/api_call_open';
 import { APICallSecure } from 'src/app/services/api_call_secure';
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  player: Player = new Player();
+  user: User = new User();
 
   loading = false;
   showError = false;
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   error_email: boolean = false;
   error_password: boolean = false;
-  
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -37,13 +38,13 @@ export class LoginComponent implements OnInit {
   login_proxy() {
     this.clear_errors();
     let fields_ok = true;
-    
-    if (!Validator.correctEmail(this.player.player_email)) {
+
+    if (!Validator.valid_email(this.user.user_email)) {
       this.error_email = true;
       fields_ok = false;
     }
 
-    if (this.player.player_password.length == 0) {
+    if (this.user.user_password.length == 0) {
       this.error_password = true;
       fields_ok = false;
     }
@@ -55,14 +56,14 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-   
+
     this.loading = true;
-    let res = await APICallOpen.postData("/api/login", this.player);
+    let res = await APICallOpen.post_data("/login", this.user);
     this.loading = false;
-    if (res.status == 200) {
-      let token = res.token;
+    if (res.response.status == 200) {
+      let token = res.data.token;
       APICallSecure.token = token;
-      localStorage.setItem("jambo_token", token);
+      UserService.save_token(token);
       this.showSucess = true;
       this.successMessage = "Connection reussie, redirection dans 2 secondes";
       await sleep(2000);

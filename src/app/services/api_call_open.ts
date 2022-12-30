@@ -1,41 +1,37 @@
+import { HelperFunction } from '../utils/helper_function';
 import { HOST } from './consts';
-import { getFormDataFromObject } from "../utils/tools";
+
 
 export class APICallOpen {
-    
-    static async getData(uri: any) {
+
+    static async get_data(uri: any) {
         let h = new Headers();
         h.append("Accept", 'application/json');
 
-        let req = new Request(`${HOST}${uri}`, {
+        let req = new Request(`${HOST}/api${uri}`, {
             method: 'GET',
             headers: h,
             mode: 'cors'
         })
 
-        let res: any = await fetch(req);
-        res = await res.json();
-        return res;
+        return await HelperFunction.send_request(req);
     }
 
 
-    static async postData(uri: any, body: any) {
+    static async post_data(uri: any, body: any) {
 
         let h = new Headers();
         h.append("Accept", 'application/json');
 
-        let req = new Request(`${HOST}${uri}`, {
+        let req = new Request(`${HOST}/api${uri}`, {
             method: 'POST',
             headers: h,
             mode: 'cors',
-            body: getFormDataFromObject(body)
+            body: HelperFunction.getFormDataFromObject(body)
         })
 
-        let res: any = await fetch(req);
-        res = await res.json();
-        return res;
+        return await HelperFunction.send_request(req);
     }
-
 
 
 

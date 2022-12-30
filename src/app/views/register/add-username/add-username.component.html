@@ -1,0 +1,15 @@
+<div class="column h100 jcfe">
+    <h3>Veuillez renseigner votre nom d'utilisateur</h3>
+    <p>Cette information servira a vous identifier dans l'application</p>
+    <input type="text" class="w100" [(ngModel)]="user.user_pseudo" placeholder="Entrez votre nom d'utilisateur"
+        autofocus>
+    <p class="error" *ngIf="show_invalid_pseudo_error">Ce nom d'utilisateur est invalide, doit comporter au moins 3
+        caracteres</p>
+    <p class="error" *ngIf="show_pseudo_already_taken_error">Ce nom d'utilisateur est deja utilise, veuillez choisir
+        un autre</p>
+    <p *ngIf="checking_if_pseudo_taken">Confirmation du nom d'utlisateur...</p>
+    <div class="mt16 row g8">
+        <button class="f1" (click)="go_to_home()">Annuler</button>
+        <button class="f1" (click)="go_to_add_password_proxy()">Ajouter le mot de passe</button>
+    </div>
+</div>

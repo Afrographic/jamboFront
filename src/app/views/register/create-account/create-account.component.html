@@ -1,0 +1,13 @@
+<div class="column h100 jcfe">
+    <div class="b1 br8 p16" *ngIf="creating_account">
+        creation du compte en cours...
+    </div>
+    <div class="b1 br8 p16" *ngIf="success">
+       Compte creer avec succes
+       <p>Redirection dans quelques instants...</p>
+    </div>
+
+    <div class="b1 br8 p16"  *ngIf="error">
+       <p class="error">Erreur serveur , veuillez reessayer plus tard!</p>
+    </div>
+</div>

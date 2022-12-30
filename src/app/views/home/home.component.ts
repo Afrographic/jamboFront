@@ -1,5 +1,5 @@
-import { PlayerService } from './../../services/player_service';
-import { Player } from './../../models/player';
+import { UserService } from './../../services/user_service';
+import { User } from './../../models/user';
 import { APICallSecure } from './../../services/api_call_secure';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,27 +11,40 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   connected = false;
+  initing = false;
+  user: User = UserService.user;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    PlayerService.init();
-    this.initConnectState();
+    this.init_user();
   }
 
-  initConnectState() {
-    this.connected = APICallSecure.token.length > 2;
+  async init_user() {
+    try {
+      await UserService.init();
+      this.initing = false;
+      this.connected = UserService.connected;
+
+      if (this.connected) {
+        this.user = UserService.user;
+      }
+    } catch (e) {
+      this.initing = false;
+    }
   }
+
+
 
   login() {
     this.router.navigate(["/login"]);
   }
 
   register() {
-    this.router.navigate(["/register"]);
+    this.router.navigate(["/register/add_pseudo"]);
   }
 
   logOut() {
-    PlayerService.log_out();
+    UserService.log_out();
     this.connected = false;
   }
 

@@ -1,35 +1,9 @@
-<div class="registerWrapper" style="padding:12px;">
-    <h2>S'enregistrer</h2>
-   
-    <div class="registerStep" *ngIf="pseudoStep">
-        <h3>Pseudo</h3>
-        <p>Ceci permettra aux autres joueurs de vous indentifier </p>
-        <p><input type="text" placeholder="entrez votre pseudo..." class="w100" [(ngModel)]="player.player_pseudo"></p>
-    </div>
-    <div class="registerStep" *ngIf="passwordStep">
-        <h3>Mot de passe</h3>
-        <p>Ceci permettra de securiser votre compte , veuillez a inserer un mot de passe fort qui n'a rien a voire avec vos informations personnelles </p>
-        <p><input type="password" placeholder="Inserer votre mot de passe..." class="w100" [(ngModel)]="player.player_password"></p>
-    </div>
-    <div class="registerStep" *ngIf="confirmPasswordStep">
-        <h3>Confirmer le Mot de passe</h3>
-        <p>Nous voulons juste nous assurer que vous maitriser bien votre mot de passe</p>
+<div class="p16 vh100 column">
+    <h2>Creation de votre compte</h2>
 
-        <p><input type="password" placeholder="Confirmer votre mot de passe..." class="w100" [(ngModel)]="player.player_confirm_password"></p>
+    <div class="mv16 b1 p16 b1 br8 f1 ova ovfxh">
+        <router-outlet></router-outlet>
     </div>
-    <div class="registerStep" *ngIf="emailStep">
-        <h3>Email</h3>
-        <p>Ceci permettra de valider votre compte , de mettre a jour votre mot de passe si jamais vous l'oublier  et de vous informez des mises a jour dans l'application</p>
-        <p><input type="text" placeholder="entrez votre email..." class="w100" [(ngModel)]="player.player_email"></p>
-    </div>
-    <div class="registerStep" *ngIf="createAccountActive">
-       <p>Merci d'avoir renseigner vos informations , a present cliquer sur le bouton ci dessous pour creer votre compte <strong>{{player.player_pseudo}}</strong></p>
-        <p><button (click)="register()">Creer mon compte</button></p>
-    </div>
-    <p *ngIf="registering">Loading...</p>
-    <p *ngIf="success">Compte creer avec success</p>
-    <p *ngIf="showError">{{errorMessage}}</p>
-    <p *ngIf="!createAccountActive"><button *ngIf="!pseudoStep" (click)="prev()">Precedent</button> <button (click)="next()">Suivant</button></p>
-   
-    <p><button (click)="back()">Retour</button></p>
+
+
 </div>

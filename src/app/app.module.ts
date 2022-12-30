@@ -1,3 +1,9 @@
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { CreateAccountComponent } from './views/register/create-account/create-account.component';
+import { AddConfirmPasswordComponent } from './views/register/add-confirm-password/add-confirm-password.component';
+import { AddPasswordComponent } from './views/register/add-password/add-password.component';
+import { AddUsernameComponent } from './views/register/add-username/add-username.component';
+import { AddEmailComponent } from './views/register/add-email/add-email.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -15,7 +21,13 @@ import { CreatePartieComponent } from './views/partie/create-partie/create-parti
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CreatePartieComponent
+    CreatePartieComponent,
+    AddEmailComponent,
+    AddUsernameComponent,
+    AddPasswordComponent,
+    AddConfirmPasswordComponent,
+    CreateAccountComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

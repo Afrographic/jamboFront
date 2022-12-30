@@ -1,10 +1,10 @@
 <div class="p8">
     <h1>login</h1>
     <p>Email</p>
-    <p><input type="email" placeholder="Enter your email" class="w100" [(ngModel)]="player.player_email"></p>
+    <p><input type="email" placeholder="Enter your email" class="w100" [(ngModel)]="user.user_email"></p>
     <p *ngIf="error_email">This email is incorrect!</p>
     <p>Password</p>
-    <p><input type="password" placeholder="Enter your password" class="w100" [(ngModel)]="player.player_password"></p>
+    <p><input type="password" placeholder="Enter your password" class="w100" [(ngModel)]="user.user_password"></p>
     <p *ngIf="error_password">The password cannot be empty</p>
     <p *ngIf="loading">Loading...</p>
     <p *ngIf="showError">{{errorMessage}}</p>

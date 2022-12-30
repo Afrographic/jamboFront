@@ -1,5 +1,5 @@
 export class Validator {
-    static correctEmail(email: any) {
+    static valid_email(email: any) {
         if (email == 'undefined') return false;
         return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
     }
