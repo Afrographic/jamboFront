@@ -22,7 +22,6 @@ export class CreateAccountComponent implements OnInit {
 
     this.creating_account = true;
     let res = await UserService.register();
-    console.log(res);
     this.creating_account = false;
 
     if (res.response.status == 200) {

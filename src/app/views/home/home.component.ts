@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  connected = false;
+  connected = true;
   initing = false;
   user: User = UserService.user;
   constructor(private router: Router) { }
@@ -50,6 +50,14 @@ export class HomeComponent implements OnInit {
 
   create_partie() {
     this.router.navigate(["/create_partie"]);
+  }
+
+  go_to_mes_parties() {
+    this.router.navigate(["/games"]);
+  }
+
+  go_to_on_going_game() {
+    this.router.navigate(["/on_going_games"]);
   }
 
 }

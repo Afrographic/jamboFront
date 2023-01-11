@@ -151,4 +151,43 @@ export class HelperFunction {
 
         return `${day} ${months[month - 1]} ${year}`;
     }
+
+    static copy(content: string) {
+        let textarea = document.createElement("textarea");
+        textarea.value = content;
+        textarea.className = 'ghost';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+    }
+
+    static async show_positive_message(message: string) {
+        let info: any = document.querySelector(".info");
+        info.firstElementChild.src = "assets/images/check.svg";
+        info.lastElementChild.innerHTML = message;
+        info.classList.add("info_visible");
+        info.classList.remove("negative");
+        info.classList.add("positive");
+        await this.sleep(2000);
+        info.classList.remove("info_visible");
+    }
+
+    static async show_negative_message(message: string) {
+        let info: any = document.querySelector(".info");
+        info.firstElementChild.src = "assets/images/error.svg";
+        info.lastElementChild.innerHTML = message;
+        info.classList.add("info_visible");
+        info.classList.remove("positive");
+        info.classList.add("negative");
+        await this.sleep(2000);
+        info.classList.remove("info_visible");
+    }
+
+    static  generate_round_link(round_id: number) {
+        let url = document.baseURI;
+        return `${url}/round?uid=${round_id}`;
+    }
 }

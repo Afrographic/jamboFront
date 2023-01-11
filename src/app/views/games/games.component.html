@@ -1,0 +1,22 @@
+<div class="p16 vh100 column">
+    <h3>Mes Parties</h3>
+    <router-outlet (deactivate)="get_games()"></router-outlet>
+    <div class="mv8 p16 br8 b1" *ngIf="getting_games">Chargement de vos parties...</div>
+    <div class="mv8 p16 br8 b1" *ngIf="deleting">Suppresion en cours...</div>
+    <div class="mv8 p16 br8 b1" *ngIf="creating_round">Generation du lien...</div>
+    <div class="mv8 p16 br8 b1" *ngIf="!getting_games&&games.length==0">Aucune partie</div>
+    <div class="b1 p16 f1 oa column fdcr">
+        <app-game-item *ngFor="let game of games" [game]="game" (on_delete)="delete(game)" (on_edit_bet)="edit_bet(game)" (on_edit_duration)="edit_duration(game)" (on_create_round)="create_round(game)"></app-game-item>
+    </div>
+    <div class="mv8 p16 br8 b1" *ngIf="round_created">
+        <p>Partager ce lien a tous tes combies pour qu'ils puissent rejoindre la partie</p>
+        <div class="b1 br8 p16 row g8">
+            <div class="f1">{{round_link}}</div>
+            <button (click)="copy_round_link()">Copier</button>
+        </div>
+       
+        <button class="mt16" (click)="hide_round_link_ui()">Fermer</button>
+    </div>
+    <button (click)="back()">Retour</button>
+    <button (click)="go_to_create_partie()">Creer une partie</button>
+</div>

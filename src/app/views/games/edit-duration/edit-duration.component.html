@@ -1,0 +1,19 @@
+<div class="p16 column jcfe">
+    <h2>Edition de la duree</h2>
+  
+    <div class="mv8">
+        <p>Nouvelle duree</p>
+        <div class="row p16 b1 br8">
+            <input type="number" placeholder="Duree de la partie" class="w100" [(ngModel)]="game.game_duration"
+                class="f1">
+            <div>Secondes</div>
+        </div>
+    </div>
+
+    <div>
+        <button (click)="back()">Annuler</button>
+        <button (click)="edit_proxy()" *ngIf="!editing">Editer la duree</button>
+        <button *ngIf="editing">En cours...</button>
+    </div>
+
+</div>

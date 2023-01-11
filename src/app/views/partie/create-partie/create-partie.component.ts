@@ -1,5 +1,6 @@
+import { Game_Service } from './../../../services/game_service';
+import { HelperFunction } from './../../../utils/helper_function';
 import { Game } from './../../../models/game';
-import { Currency, GameService } from './../../../services/game_service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePartieComponent implements OnInit {
   game: Game = new Game();
-  currencies: Currency[] = GameService.currencies;
-  current_currency_index: number = 0;
+
+  creating = false;
 
   constructor() { }
 
@@ -24,20 +25,33 @@ export class CreatePartieComponent implements OnInit {
   create_proxy() {
     let fields_Ok = true;
 
+    if (this.game.game_bet < 100) {
+      HelperFunction.show_negative_message("La mise minimum doit etre de 100F!")
+      fields_Ok = false;
+      return;
+    }
+
+    if (this.game.game_duration < 10) {
+      HelperFunction.show_negative_message("Une partie doit durer au minimum 10s")
+      fields_Ok = false;
+      return;
+    }
+
     if (fields_Ok) {
       this.create();
     }
   }
 
-  create() {
-    
-  }
-
-  select_currency(currency_index: number) {
-    if (this.current_currency_index == currency_index) return;
-    this.currencies[this.current_currency_index].active = false;
-    this.currencies[currency_index].active = true;
-    this.current_currency_index = currency_index;
+  async create() {
+    this.creating = true;
+    let res = await Game_Service.create(this.game);
+    this.creating = false;
+    if (res.response.status == 200) {
+      this.game = new Game();
+      HelperFunction.show_positive_message("Partie cree avec succes!");
+      return;
+    }
+    HelperFunction.show_negative_message("Erreur serveur!")
   }
 
 }

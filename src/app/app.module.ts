@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { CreatePartieComponent } from './views/partie/create-partie/create-partie.component';
+import { GamesComponent } from './views/games/games.component';
+import { GameItemComponent } from './views/games/game-item/game-item.component';
+import { EditDurationComponent } from './views/games/edit-duration/edit-duration.component';
+import { EditBetComponent } from './views/games/edit-bet/edit-bet.component';
+import { OngoingGamesComponent } from './views/ongoing-games/ongoing-games.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { CreatePartieComponent } from './views/partie/create-partie/create-parti
     AddPasswordComponent,
     AddConfirmPasswordComponent,
     CreateAccountComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GamesComponent,
+    GameItemComponent,
+    EditDurationComponent,
+    EditBetComponent,
+    OngoingGamesComponent,
   ],
   imports: [
     BrowserModule,
