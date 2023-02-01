@@ -19,6 +19,8 @@ import { GameItemComponent } from './views/games/game-item/game-item.component';
 import { EditDurationComponent } from './views/games/edit-duration/edit-duration.component';
 import { EditBetComponent } from './views/games/edit-bet/edit-bet.component';
 import { OngoingGamesComponent } from './views/ongoing-games/ongoing-games.component';
+import { PreparingGamesComponent } from './views/preparing-games/preparing-games.component';
+import { RoundItemComponent } from './views/round-item/round-item.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { OngoingGamesComponent } from './views/ongoing-games/ongoing-games.compo
     EditDurationComponent,
     EditBetComponent,
     OngoingGamesComponent,
+    PreparingGamesComponent,
+    RoundItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { PreparingGamesComponent } from './views/preparing-games/preparing-games.component';
 import { OngoingGamesComponent } from './views/ongoing-games/ongoing-games.component';
 import { Edit_Game_Guard } from './guards/edit_game.guard';
 import { EditBetComponent } from './views/games/edit-bet/edit-bet.component';
@@ -33,35 +34,40 @@ const routes: Routes = [
     children: [
       {
         path: 'add_pseudo',
-        component:AddUsernameComponent
+        component: AddUsernameComponent
       },
       {
         path: "add_password",
-        component:AddPasswordComponent
+        component: AddPasswordComponent
       },
       {
         path: 'add_confirm_password',
-        component:AddConfirmPasswordComponent
+        component: AddConfirmPasswordComponent
       },
       {
         path: 'add_email',
-        component:AddEmailComponent
+        component: AddEmailComponent
       },
       {
         path: "create_account",
-        component:CreateAccountComponent
+        component: CreateAccountComponent
       }
     ]
   },
   {
     path: 'create_partie',
     component: CreatePartieComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'on_going_games',
     component: OngoingGamesComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'preparing_games',
+    component: PreparingGamesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'games',
@@ -69,12 +75,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path:"edit_duration",
+        path: "edit_duration",
         component: EditDurationComponent,
-        canActivate:[Edit_Game_Guard]
+        canActivate: [Edit_Game_Guard]
       },
       {
-        path:"edit_bet",
+        path: "edit_bet",
         component: EditBetComponent,
         canActivate: [Edit_Game_Guard]
       },

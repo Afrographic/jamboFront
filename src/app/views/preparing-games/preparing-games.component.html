@@ -1,0 +1,10 @@
+<div class="b1 p16 m16 br8" *ngIf="loading">
+    chargment...
+</div>
+
+<div class="vh100 column p16">
+    <h3>{{rounds.length}} Round(s)</h3>
+    <div class="f1 oa">
+        <app-round-item *ngFor="let round of rounds" [round]="round"></app-round-item>
+    </div>
+</div>

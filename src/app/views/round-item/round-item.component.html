@@ -1,0 +1,21 @@
+<div class="b1 br8 p16 row jcsb mb8">
+
+    <div>
+        <div style="font-size:11px;color:grey">Mise initiale</div>
+        <div>{{round.game_bet}} FCFA</div>
+    </div>
+
+    <div>
+        <div style="font-size:11px;color:grey">Duree</div>
+        <div>{{round.game_duration}} s</div>
+    </div>
+
+    <div>
+        <div style="font-size:11px;color:grey">Date de creation</div>
+        <div>{{round.round_created_date|date:"medium"}}</div>
+    </div>
+
+
+
+    <button (click)="join()">Rejoindre</button>
+</div>

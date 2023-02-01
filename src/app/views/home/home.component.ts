@@ -59,5 +59,8 @@ export class HomeComponent implements OnInit {
   go_to_on_going_game() {
     this.router.navigate(["/on_going_games"]);
   }
+  go_to_preparing_game() {
+    this.router.navigate(["/preparing_games"]);
+  }
 
 }

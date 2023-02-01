@@ -188,6 +188,6 @@ export class HelperFunction {
 
     static  generate_round_link(round_id: number) {
         let url = document.baseURI;
-        return `${url}/round?uid=${round_id}`;
+        return `${url}round?uid=${round_id}`;
     }
 }
