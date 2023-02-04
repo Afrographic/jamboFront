@@ -9,6 +9,9 @@ export class Round{
     game_bet: number = 0;
     game_duration: number = 0;
 
+    // runtime state
+    joined: boolean = false;
+
     clone(): Round {
         let round: Round = new Round();
         round.round_id = this.round_id;

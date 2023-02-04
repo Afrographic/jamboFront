@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Game_Service } from './../../../services/game_service';
 import { HelperFunction } from './../../../utils/helper_function';
 import { Game } from './../../../models/game';
@@ -13,7 +14,7 @@ export class CreatePartieComponent implements OnInit {
 
   creating = false;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +50,7 @@ export class CreatePartieComponent implements OnInit {
     if (res.response.status == 200) {
       this.game = new Game();
       HelperFunction.show_positive_message("Partie cree avec succes!");
+      this.router.navigate(["/games"]);
       return;
     }
     HelperFunction.show_negative_message("Erreur serveur!")

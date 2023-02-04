@@ -1,3 +1,4 @@
+import { HelperFunction } from './../../utils/helper_function';
 import { Round_Service } from './../../services/round.service';
 import { Round } from './../../models/round.model';
 import { Component, OnInit } from '@angular/core';
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preparing-games.component.scss']
 })
 export class PreparingGamesComponent implements OnInit {
-  loading = true;
+
   rounds: Round[] = [];
+
+  can_render = false;
 
   constructor() { }
 
@@ -19,7 +22,9 @@ export class PreparingGamesComponent implements OnInit {
 
   async get_rounds() {
     this.rounds = await Round_Service.get_preparing();
-    this.loading = false;
+    this.can_render = true;
   }
+
+
 
 }

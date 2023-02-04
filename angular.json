@@ -36,9 +36,8 @@
                         "styles": [
                             "src/styles.scss",
                             "src/theme.scss",
-                            "node_modules/primeicons/primeicons.css",
-                            "node_modules/primeng/resources/themes/saga-blue/theme.css",
-                            "node_modules/primeng/resources/primeng.min.css"
+                           "src/ankh_css/ankh_loader.css",
+                           "src/ankh_css/ankh_notif.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js"

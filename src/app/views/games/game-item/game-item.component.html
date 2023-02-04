@@ -1,7 +1,7 @@
 <div class="b1 br8 p16 mv8">
     <div>Mise initiale <strong>{{game.game_bet | number}} FCFA</strong></div>
     <div>Duree <strong>{{game.game_duration}}</strong> s</div>
-    <div>{{game.game_created_date}}</div>
+    <div>{{game.game_created_date|date:"medium"}}</div>
 
     <button (click)="create_round()">Rassembler les joueurs</button>
 

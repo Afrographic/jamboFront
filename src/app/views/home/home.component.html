@@ -7,6 +7,12 @@
     </div>
 
     <div *ngIf="connected">
+        <p class="tac">Hi <strong>{{user.user_pseudo}}</strong></p>
+        <div class="m16 p16 br8 b1 column aic jcc" style="background-color:rgb(240, 240, 240);">
+            <p>Solde</p>
+            <h1>{{user.user_balance|number}} F</h1>
+        </div>
+        <button>Faire une demande de recharge</button>
         <button (click)="go_to_on_going_game()">Parties en cours</button>
         <button (click)="go_to_preparing_game()">Parties en preparations</button>
         <button (click)="create_partie()">Creer une partie</button>

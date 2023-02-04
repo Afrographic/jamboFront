@@ -1,21 +1,33 @@
-<div class="b1 br8 p16 row jcsb mb8">
+<div class="column g8 b1 p16 mb8">
+    <div class=" br8  row jcsb mb8">
 
-    <div>
-        <div style="font-size:11px;color:grey">Mise initiale</div>
-        <div>{{round.game_bet}} FCFA</div>
+        <div>
+            <div style="font-size:11px;color:grey">Mise initiale</div>
+            <div>{{round.game_bet}} FCFA</div>
+        </div>
+
+        <div>
+            <div style="font-size:11px;color:grey">Duree</div>
+            <div>{{round.game_duration}} s</div>
+        </div>
+
+        <div>
+            <div style="font-size:11px;color:grey">Date de creation</div>
+            <div>{{round.round_created_date|date:"medium"}}</div>
+        </div>
+
+        <button (click)="join()" *ngIf="!round.joined">Rejoindre</button>
+
     </div>
+    <div *ngIf="round.joined" class="br8 p16 tac" style="background-color:rgb(20, 20, 20);color:rgba(255, 255, 255, 0.864);">Vous etes sur cette partie</div>
 
-    <div>
-        <div style="font-size:11px;color:grey">Duree</div>
-        <div>{{round.game_duration}} s</div>
+    <div class="b1 br8 p16">
+        <p class="tac" style="color:rgb(180, 180, 180);">Personne n'a encore rejoinds</p>
     </div>
-
-    <div>
-        <div style="font-size:11px;color:grey">Date de creation</div>
-        <div>{{round.round_created_date|date:"medium"}}</div>
+    
+    <div class="b1 br8 p16" style="background-color:rgb(0 142 255 / 28%)">
+        <div class="tac" style="color:rgb(0 85 159);">
+            <strong>9 Personnes</strong> ont rejoinds
+        </div>
     </div>
-
-
-
-    <button (click)="join()">Rejoindre</button>
 </div>

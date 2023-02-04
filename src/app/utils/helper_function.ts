@@ -77,13 +77,15 @@ export class HelperFunction {
     static async send_request(req:any) {
         try {
             let res: any = await fetch(req);
-            let data:any;
+            let data: any;
+            HelperFunction.show_loader();
             try {
                 data = await res.text();
                 data = this.string_to_json(data);
             } catch (e) {
                 data = {};
             }
+            HelperFunction.hide_loader();
 
             return {
                 response: res,
@@ -189,5 +191,15 @@ export class HelperFunction {
     static  generate_round_link(round_id: number) {
         let url = document.baseURI;
         return `${url}round?uid=${round_id}`;
+    }
+
+    static show_loader() {
+        let loader: any = document.querySelector("#ankh_api_loader");
+        loader.classList.add("active");
+    }
+
+    static hide_loader() {
+        let loader: any = document.querySelector("#ankh_api_loader");
+        loader.classList.remove("active");
     }
 }
