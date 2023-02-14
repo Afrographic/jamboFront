@@ -76,7 +76,9 @@ export class HelperFunction {
 
     static async send_request(req:any) {
         try {
+            HelperFunction.show_loader();
             let res: any = await fetch(req);
+            HelperFunction.hide_loader();
             let data: any;
             HelperFunction.show_loader();
             try {
@@ -201,5 +203,44 @@ export class HelperFunction {
     static hide_loader() {
         let loader: any = document.querySelector("#ankh_api_loader");
         loader.classList.remove("active");
+    }
+
+    static get_elapsed_time(date_: any) {
+        let date = new Date(date_);
+        let current_date = new Date();
+        let diff = current_date.getTime() - date.getTime();
+        let diff_days_raw = diff / (1000 * 60 * 60 * 24);
+
+
+        let diff_days = Math.floor(diff_days_raw);
+        let diff_hours = Math.floor(diff_days_raw * 24);
+        let diff_minutes = Math.floor(diff_days_raw * 24 * 60)
+        let diff_seconds = Math.floor(diff_days_raw * 24 * 60 * 60)
+
+        let res;
+
+        if (diff_days == 0) {
+            if (diff_hours == 0) {
+                if (diff_minutes == 0) {
+                    res = `${diff_seconds} s`;
+                } else {
+                    res = `${diff_minutes} minutes`;
+                }
+            } else {
+                res = `${diff_hours} heures`;
+            }
+        } else {
+            if (diff_days > 30) {
+                if (diff_days > 365) {
+                    res = `${Math.floor(diff_days / 365)} an`
+                } else {
+                    res = `${Math.floor(diff_days / 30)} mois`
+                }
+            } else {
+                res = `${diff_days} Jours`;
+            }
+        }
+
+        return res;
     }
 }

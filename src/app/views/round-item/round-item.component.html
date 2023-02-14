@@ -13,21 +13,26 @@
 
         <div>
             <div style="font-size:11px;color:grey">Date de creation</div>
-            <div>{{round.round_created_date|date:"medium"}}</div>
+            <div>il y'a {{get_elapsed_time(round.round_created_date)}}</div>
         </div>
 
-        <button (click)="join()" *ngIf="!round.joined">Rejoindre</button>
-
     </div>
-    <div *ngIf="round.joined" class="br8 p16 tac" style="background-color:rgb(20, 20, 20);color:rgba(255, 255, 255, 0.864);">Vous etes sur cette partie</div>
+    <div *ngIf="round.joined" class="br8 p16 tac"
+        style="background-color:rgb(20, 20, 20);color:rgba(255, 255, 255, 0.864);">Vous etes sur cette partie</div>
 
-    <div class="b1 br8 p16">
-        <p class="tac" style="color:rgb(180, 180, 180);">Personne n'a encore rejoinds</p>
-    </div>
-    
-    <div class="b1 br8 p16" style="background-color:rgb(0 142 255 / 28%)">
-        <div class="tac" style="color:rgb(0 85 159);">
-            <strong>9 Personnes</strong> ont rejoinds
+    <ng-template [ngIf]="can_render_total_player">
+        <div class="b1 br8 p16" *ngIf="total_player == 0">
+            <p class="tac" style="color:rgb(180, 180, 180);">Personne n'a encore rejoinds</p>
         </div>
-    </div>
+
+        <div class="b1 br8 p16" style="background-color:rgb(0 142 255 / 28%)"  *ngIf="total_player > 0">
+            <div class="tac" style="color:rgb(0 85 159);">
+                <strong>{{total_player}} Personne(s)</strong> sur le round
+            </div>
+        </div>
+    </ng-template>
+
+    <button (click)="join()" *ngIf="!round.joined">Rejoindre</button>
+    <button (click)="launch_proxy()" *ngIf="round.user_id==user_id">Lancer le round</button>
+
 </div>

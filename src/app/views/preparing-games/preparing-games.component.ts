@@ -25,6 +25,8 @@ export class PreparingGamesComponent implements OnInit {
     this.can_render = true;
   }
 
-
+  launch(index: number) {
+    this.rounds.splice(index, 1);
+  }
 
 }

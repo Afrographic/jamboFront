@@ -2,6 +2,6 @@
 <div class="vh100 column p16" *ngIf="can_render">
     <h3 class="tac">{{rounds.length}} Round(s) en preparation</h3>
     <div class="f1 oa column fdcr p8">
-        <app-round-item *ngFor="let round of rounds" [round]="round" ></app-round-item>
+        <app-round-item *ngFor="let round of rounds;index as index" [round]="round" (on_launch)="launch(index)"></app-round-item>
     </div>
 </div>
